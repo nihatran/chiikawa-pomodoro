@@ -1,0 +1,22 @@
+
+.optionsbtn {
+    position: absolute;
+    z-index: 1;
+    right: 0px;
+    top: 0px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.star {
+    width: 90px;
+    transition: all 0.3s ease;
+}
+
+.star:hover {
+    transform: scale(1.1);
+}
+
+
+
