@@ -1,14 +1,16 @@
 .timerContainer {
     position: relative;
-    height: 500px;
-    width: 600px;
+    height: 300px;
+    width: 400px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
     padding: 10px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.09);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(133, 203, 250, 0.192);
 }
@@ -17,21 +19,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 100px;
     width: 100%;
+    font-size: 3.5em;
 }
 
 .buttonsContainer {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
+    gap: 20px;
+    height: 50px;
+    width: 90%;
+}
 
-    border: 2px solid blue;
+.buttonsContainer button {
+    display: block;
+    width: 100%;
+    background-color: #FFD4DB;
+    border: 1px solid rgba(0, 0, 0, 0.295);
+    font-size: 1.5em;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.buttonsContainer button:active {
+    transform: scale(0.95);
 }
 
 @media (max-width: 700px) {
     .timerContainer {
-        height: 40vh;
-        width: 40vh;
+        height: 30vh;
+        width: 35vh;
     }
 }
