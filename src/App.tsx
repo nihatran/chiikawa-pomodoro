@@ -25,7 +25,7 @@ function App() {
 
   const handleReset = () => {
     setTimeLeft(1500);
-    clearInterval(intervalRef.current);
+    setIsRunning(false);
   };
 
   return (
