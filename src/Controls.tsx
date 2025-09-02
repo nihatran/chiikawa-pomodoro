@@ -1,11 +1,27 @@
 import "./Controls.css";
 
-export function Controls() {
+interface ControlsProps {
+  onStart: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onPause: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onReset: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  isRunning: boolean;
+}
+
+export function Controls({
+  onStart,
+  onPause,
+  onReset,
+  isRunning,
+}: ControlsProps) {
   return (
     <>
       <div className="buttonsContainer">
-        <button>Start</button>
-        <button>Reset</button>
+        {isRunning ? (
+          <button onClick={onPause}>Pause</button>
+        ) : (
+          <button onClick={onStart}>Start</button>
+        )}
+        <button onClick={onReset}>Reset</button>
       </div>
     </>
   );
