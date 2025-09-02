@@ -1,9 +1,9 @@
 import "./Controls.css";
 
 interface ControlsProps {
-  onStart: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onPause: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onReset: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onStart: () => void;
+  onPause: () => void;
+  onReset: () => void;
   isRunning: boolean;
 }
 
