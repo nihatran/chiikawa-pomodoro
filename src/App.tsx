@@ -14,6 +14,7 @@ function App() {
   const [pomodoroCount, setPomodoroCount] = useState(0);
   const intervalRef = useRef(0);
 
+  // timer countdown
   useEffect(() => {
     if (isRunning && timeLeft > 0) {
       intervalRef.current = setInterval(() => {
@@ -24,6 +25,7 @@ function App() {
     return () => clearInterval(intervalRef.current);
   }, [isRunning]);
 
+  // change to break time
   useEffect(() => {
     if (timeLeft === 0) {
       if (mode === "work") {
@@ -34,16 +36,26 @@ function App() {
           setMode("long");
           setTimeLeft(longBreak);
           setPomodoroCount(0);
+          playLongSound();
         } else {
           setMode("short");
           setTimeLeft(shortBreak);
+          playShortSound();
         }
       } else {
         setMode("work");
         setTimeLeft(pomodoroTime);
+        playWorkSound();
       }
     }
   }, [timeLeft]);
+
+  // ask for notification permission
+  useEffect(() => {
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission();
+    }
+  }, []);
 
   const handleStart = () => setIsRunning(true);
 
@@ -52,6 +64,27 @@ function App() {
   const handleReset = () => {
     setTimeLeft(pomodoroTime);
     setIsRunning(false);
+  };
+
+  const playWorkSound = () => {
+    if (Notification.permission === "granted") {
+      const audio = new Audio("chiikawasounds.mp3");
+      audio.play();
+    }
+  };
+
+  const playShortSound = () => {
+    if (Notification.permission === "granted") {
+      const audio = new Audio("usagisounds.mp3");
+      audio.play();
+    }
+  };
+
+  const playLongSound = () => {
+    if (Notification.permission === "granted") {
+      const audio = new Audio("hitorigotsu.mp3");
+      audio.play();
+    }
   };
 
   return (
