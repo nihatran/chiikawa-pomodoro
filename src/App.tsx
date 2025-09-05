@@ -57,7 +57,12 @@ function App() {
   return (
     <>
       <div className="pomodoroContainer">
-        <Options></Options>
+        <Options
+          setPomodoroTime={setPomodoroTime}
+          setShortBreak={setShortBreak}
+          setLongBreak={setLongBreak}
+          setTimeLeft={setTimeLeft}
+        ></Options>
         <h1>Chiikawa Pomodoro</h1>
         <div className="timerContainer">
           {mode === "work"
